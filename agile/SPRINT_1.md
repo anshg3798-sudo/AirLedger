@@ -6,15 +6,7 @@ As an analyst, I want a clean dataset and baseline models so that AQI can be pre
 
 ## Tasks
 
-Inspect the supplied data, reproduce the historical run, compare all five candidates, train and serialize the winners.
-
-## Acceptance criteria
-
-Preserve 1,095 rows and 13 ordered features. Keep scaling and selection independent of the 219-record holdout. Record both historic and current scores.
-
-## Implementation paths
-
-backend/train.py, backend/schema.py, backend/data/delhi_aqi_data.csv
+removed
 
 ## Actual changes
 
