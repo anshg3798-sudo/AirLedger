@@ -59,8 +59,8 @@ def invalid_input(error):
     return jsonify(error=str(error)), 400
 
 
-RISK_LABELS = {0: 'Safe', 1: 'Moderate', 2: 'High Risk'}
-RISK_COLORS = {0: '#22c55e', 1: '#f59e0b', 2: '#ef4444'}
+RISK_LABELS = {0: "Safe", 1: "Moderate", 2: "High Risk"}
+RISK_COLORS = {0: "#22c55e", 1: "#f59e0b", 2: "#ef4444"}
 
 AQI_CATEGORIES = [
     (0,   50,  'Good',        '#22c55e'),
