@@ -1,15 +1,29 @@
-# Testing report
 
-| Check | Observed result |
-| --- | --- |
-| Dataset inventory | 1,095 distinct days, seven locations, no missing cells. Original and delivered CSV checksums match. |
-| Original training | Linear Regression R² 0.9914, MAE 7.93, RMSE 10.35. Random Forest classifier accuracy 94.52%. |
-| Corrected training | Same headline regression metrics. Selected Logistic Regression accuracy 94.06% on 219 holdout rows; Random Forest holdout accuracy 94.52%. |
-| Flask automated suite | 9 passed. All five endpoints, validation and CORS, AQI boundaries, budget tiers, artifact metadata and train-only scaling. |
-| React automated suite | 6 passed. Dashboard, retry, blank and preset prediction, prediction loading and error, forecast and insights. |
-| Live browser check | Dashboard fetched historical data and drew charts, Winter predicted AQI 344.6, simulation returned seven days and drew a chart, insights displayed coefficients and 94.06% accuracy. The mobile Dashboard fit a 390px viewport. |
-| Production build | Vite completed successfully. It reported a JavaScript chunk above 500 kB before compression. |
-| Remote CI | Pending confirmed repository, GitHub identity and push. |
-| Deployment | Hosting configuration supplied. No deployment workflow or live deployment was run. |
+## Agile Testing Approach
 
-The live check used local Vite and Waitress on loopback port 8787 for Flask. The environment did not connect to the Flask development server on port 5000. The Vitest suite uses a mock API and stubs responsive chart containers. The live browser check exercised the actual API and chart rendering.
+Testing is integrated throughout the AirLedger development process instead of being postponed until the end.
+
+| Sprint | Testing activity |
+|---|---|
+| Sprint 1 | Evaluate regression and classification models |
+| Sprint 2 | Verify AQI prediction and invalid input handling |
+| Sprint 3 | Check pollution-budget calculations and recommendation tiers |
+| Sprint 4 | Verify dashboard data and forecast API responses |
+| Sprint 5 | Review model insights, automated tests and documentation |
+
+## Current Test Evidence
+
+- Backend automated test suite: 9 tests passed.
+- Frontend automated test suite: 6 tests passed.
+- API validation includes missing fields, invalid numeric values and incorrect JSON requests.
+- AQI category boundaries and pollution-budget calculations are tested.
+- Frontend tests cover dashboard, prediction, forecast and model insights.
+- A production frontend build was completed successfully.
+
+## Known Limitations
+
+- An automated unit-test suite for individual model-training components can be expanded.
+- Feature-importance reporting depends on the attributes exposed by the selected model.
+- The frontend production build reports a JavaScript chunk larger than 500 kB.
+
+Future testing can include broader unit-test coverage, additional API edge cases and automated end-to-end browser tests.
